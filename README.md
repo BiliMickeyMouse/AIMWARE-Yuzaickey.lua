@@ -397,12 +397,13 @@ Exhibit B - "Incompatible With Secondary Licenses" Notice
 ### Spammer（刷屏器）
 - 多种分类文本池：Insult 系列、各作弊网站名称、自定义文本
 - 可调发送间隔
+- 自定义发送文本
 
 ### Helper（游戏助手）
 - **RageBot / LegitBot** 切换
 - **AutoWall** 自动穿墙开关
 - **ThroughSmoke** 烟雾穿透开关
-- **DoubleTap (DT)** 双击开关
+- **DoubleTap** 双击开关
 - **指示器系统**：
   - 每个功能项独立的 On/Off 颜色选择器（默认开=绿，关=红）
   - 横向 / 竖向布局切换
@@ -430,7 +431,7 @@ Exhibit B - "Incompatible With Secondary Licenses" Notice
 - 包含目标名、部位、伤害值、剩余血量
 - Y 轴偏移可调
 
-### TriggerBot Delay（触发延迟）
+### TriggerBot Delay（扳机延迟）
 - 根据准心到最近敌人距离自动调节延迟
 - 配合连点倍率使用
 
@@ -443,11 +444,12 @@ Exhibit B - "Incompatible With Secondary Licenses" Notice
 ## 致谢
 
 - 基于 **yuzaki.lua**（作者: Yuzaki Xiaosi1337 Xingdao）编写优化
-- Skeet 水印样式参考自 QQ 3167516283 的仿 SK 水印实现
+- **yuzaki.lua** 遵循作者(Yuzaki)意愿 保持闭源且私人状态
+- Skeet 水印样式参考自 **QQ 3167516283** 的 **仿 SK 水印** lua 实现
 - 所有引用的第三方代码均在源码注释中标明出处
 
 ## 作者
 
-**M1ckey_**
+**M1ckey_ Yuzaki(仍在参与部分代码编写)**
 
 > yuzaickey.lua 免费且开源，支持二改并免费发布。修改过的版本请注明原作者，尊重他人(AI)的劳动成果。
