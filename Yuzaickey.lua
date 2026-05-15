@@ -2,7 +2,7 @@
 -- yuzaickey.lua 免费且开源 支持二改并免费发布 修改过的版本请注明原作者 尊重他人(AI)的劳动成果
 -- yuzaickey.lua 所有抄写的功能或代码都会在注释中标明出处 并附上原作者 以便于追溯
 
-local YuzakiWindow = gui.Window("YuzakiWindow", "Yuzaickey Recode", 100, 100, 820, 800)
+local YuzakiWindow = gui.Window("YuzakiWindow", "Yuzaickey Recode v1.1", 100, 100, 820, 800)
 
 -- Aimbot GUI
 local Aimbot = gui.Groupbox(YuzakiWindow, "Aimbot", 20, 20, 250, 0)
@@ -218,9 +218,9 @@ local spam_enable = gui.Checkbox(SpammerGroup, "spam_enable", "Enable", false)
 local spam_interval = gui.Slider(SpammerGroup, "spam_interval", "Delay", 50, 10, 1000, 1)
 local category   = gui.Combobox(SpammerGroup, "spam_cat",   "Category",
     "Insult1", "Insult2", "ImClean", "Apology",
-    "AIMWARE.net", "PRIMORDIAL.dev", "LEGENDWARE.pw", "FATALITY.win",
-    "Rifk7.com", "iniuria.us", "NeverLose.cc", "Gamesense.pub",
-    "Nixware.cc", "memesense.gg", "plaguecheat.cc", "bankroll.su",
+    "AIMWARE", "PRIMORDIAL", "LEGENDWARE", "FATALITY",
+    "Rifk7", "iniuria", "NeverLose", "Gamesense",
+    "Nixware", "memesense", "plaguecheat", "bankroll",
     "Custom"
 )
 local spam_custom_text = gui.Editbox(SpammerGroup, "spam_custom_text", "Custom Text")
@@ -230,7 +230,7 @@ spam_custom_text:SetValue("")
 
 -- ==================== 内容池 ====================
 -- 分类1: Insult1
-local text_group_1 = {
+local insult1 = {
     "就像你死去的亲妈血比被草烂了还生了你这么条苟,啧啧啧",
     "儿子咬你爹三百口,少一口对不起你死去的妈",
     "尼玛死的早没给你请老师也没钱给你治病让你智商这么低下只能卖比养活你这煞笔苟",
@@ -1726,7 +1726,7 @@ local text_group_1 = {
 }
 
 -- 分类2: 辱骂绿玩
-local text_group_2 = {
+local insult2 = {
    "    绿色玩你妈官匹           ",
 	"我直接杀你妈。",
 	"操完他妈还要帮我口。",
@@ -1756,7 +1756,7 @@ local text_group_2 = {
 }
 
 -- 分类3: 手法
-local text_group_3 = {
+local imclean = {
     "早睡早起没撸的高敏，七彩虹4090ti，240Hz高刷显示器，杭州打外地，队友报点了，对面漏脚步了，高敏状态好，磁轴停的快，常规预瞄点，带薪年假，魔王车五排，总之不是挂",
 "挺正常的，早睡早起没鹿,官匹经验高的，队友报点了，漏脚步了，高敏状态好，磁轴停的快，高帧打低帧，常规预瞄，法拉利大拉，timing，总之别尬黑",
 "压制 手法 绝境 突破 自我 证明 巅峰 枷锁 答案 依赖 尽头 诠释 冷静 逆境自信 无限打破困局 质疑 逆转 磨炼 极限 止步 假象 结果 终将 问鼎 冷静",
@@ -1915,7 +1915,7 @@ local text_group_3 = {
 }
 
 -- 分类5: 道歉
-local text_group_4 = {
+local apology = {
     "我开卦了，我承认错误",
 "请别和我一样使用外卦",
 "如果我的队友对您恶意中伤，我会代他向您道歉––年轻人总是口不择言",
@@ -1943,36 +1943,36 @@ local text_group_4 = {
 -- 内容池映射 (索引从0开始对应Combobox)
 -- 广告内容池
 local ad_aimware      = {"AIMWARE.net | PREMIUM CS2 CHEAT"}
-local ad_primordial   = {"PRIMORDIAL.DEV | PREMIUM CS2 CHEAT"}
-local ad_legendware   = {"LEGENDWARE.PW | PREMIUM CS2 CHEAT"}
-local ad_fatality     = {"FATALITY.WIN | PREMIUM CS2 CHEAT"}
-local ad_rifk7        = {"Rifk7.com | PREMIUM CS2 CHEAT"}
-local ad_iniuria      = {"iniuria.us | PREMIUM CS2 CHEAT"}
-local ad_neverlose    = {"NeverLose.cc | PREMIUM CS2 CHEAT"}
-local ad_gamesense    = {"Gamesense.pub | PREMIUM CS2 CHEAT"}
-local ad_nixware      = {"Nixware.cc | PREMIUM CS2 CHEAT"}
-local ad_memesense    = {"memesense.gg | PREMIUM CS2 CHEAT"}
-local ad_plaguecheat  = {"plaguecheat.cc | PREMIUM CS2 CHEAT"}
-local ad_bankroll     = {"bankroll.su | PREMIUM CS2 CHEAT"}
+local primordial   = {"PRIMORDIAL.DEV | PREMIUM CS2 CHEAT"}
+local legendware   = {"LEGENDWARE.PW | PREMIUM CS2 CHEAT"}
+local fatality     = {"FATALITY.WIN | PREMIUM CS2 CHEAT"}
+local rifk7        = {"Rifk7.com | PREMIUM CS2 CHEAT"}
+local iniuria      = {"iniuria.us | PREMIUM CS2 CHEAT"}
+local neverlose    = {"NeverLose.cc | PREMIUM CS2 CHEAT"}
+local gamesense    = {"Gamesense.pub | PREMIUM CS2 CHEAT"}
+local nixware      = {"Nixware.cc | PREMIUM CS2 CHEAT"}
+local memesense    = {"memesense.gg | PREMIUM CS2 CHEAT"}
+local plaguecheat  = {"plaguecheat.cc | PREMIUM CS2 CHEAT"}
+local bankroll     = {"bankroll.su | PREMIUM CS2 CHEAT"}
 
 -- 内容池映射 (索引从0开始对应Combobox)
 local content_pools = {
-    text_group_1,
-    text_group_2,
-    text_group_3,
-    text_group_4,
-    ad_aimware,
-    ad_primordial,
-    ad_legendware,
-    ad_fatality,
-    ad_rifk7,
-    ad_iniuria,
-    ad_neverlose,
-    ad_gamesense,
-    ad_nixware,
-    ad_memesense,
-    ad_plaguecheat,
-    ad_bankroll
+    insult1,
+    insult2,
+    imclean,
+    apology,
+    aimware,
+    primordial,
+    legendware,
+    fatality,
+    rifk7,
+    iniuria,
+    neverlose,
+    gamesense,
+    nixware,
+    memesense,
+    plaguecheat,
+    bankroll
 }
 
 -- ==================== 刷屏逻辑 ====================
@@ -2287,7 +2287,7 @@ callbacks.Register("FireGameEvent", function(event)
 end)
 
 -- ==================== TriggerBot Delay 分类 ====================
-local TBDelayGroup = gui.Groupbox(YuzakiWindow, "TriggerBot Delay", 20, 640, 250, 0)
+local TBDelayGroup = gui.Groupbox(YuzakiWindow, "TriggerBot Delay", 285, 600, 250, 0)
 local tb_delay_enable = gui.Checkbox(TBDelayGroup, "tb_delay_enable", "Enable", true)
 local tb_delay_multipoints = gui.Slider(TBDelayGroup, "tb_delay_multipoints", "Multipoints", 0.55, 0, 1, 0.01)
 
@@ -2348,26 +2348,29 @@ end
 -- ==================== 助手分类 ====================
 local HelperGroup = gui.Groupbox(YuzakiWindow, "Helper", 20, 360, 250, 0)
 local helper_enable = gui.Checkbox(HelperGroup, "helper_enable", "Enable", true)
-local helper_rage = gui.Checkbox(HelperGroup, "helper_rage", "LegitBot/RageBot", false)
+local helper_ragebot = gui.Checkbox(HelperGroup, "helper_ragebot", "Legit/RageBot", false)
 local helper_autowall = gui.Checkbox(HelperGroup, "helper_autowall", "AutoWall", false)
-local helper_smoke = gui.Checkbox(HelperGroup, "helper_smoke", "ThroughSmoke", false)
-local helper_dt = gui.Checkbox(HelperGroup, "helper_dt", "DoubleTap", false)
+local helper_throughsmoke = gui.Checkbox(HelperGroup, "helper_throughsmoke", "ThroughSmoke", false)
+local helper_doubletap = gui.Checkbox(HelperGroup, "helper_doubletap", "DoubleTap", false)
 
 -- 指示器显示开关
-local helper_ind_multibox = gui.Multibox(HelperGroup, "Show Indicator")
-local helper_show_rage = gui.Checkbox(helper_ind_multibox, "helper_show_rage","RageBot",false)
-local helper_show_aw  = gui.Checkbox(helper_ind_multibox, "helper_show_aw",  "AutoWall",  false)
-local helper_show_as  = gui.Checkbox(helper_ind_multibox, "helper_show_as",  "ThroughSmoke",  false)
-local helper_show_dt  = gui.Checkbox(helper_ind_multibox, "helper_show_dt",  "DT",       false)
-
--- 指示器颜色
-local helper_color_rage = gui.ColorPicker(helper_show_rage,"helper_col_rage","Color", 255, 60, 60, 255)
-local helper_color_aw   = gui.ColorPicker(helper_show_aw,  "helper_col_aw",  "Color", 0,   255, 0,   255)
-local helper_color_as   = gui.ColorPicker(helper_show_as,  "helper_col_as",  "Color", 0,   191, 255, 255)
-local helper_color_dt   = gui.ColorPicker(helper_show_dt,  "helper_col_dt",  "Color", 255, 200, 0,   255)
-
-local helper_indicator_y = gui.Slider(HelperGroup, "helper_ind_y", "Indicator Y Offset", 30, -200, 200, 1)
-local helper_ind_layout = gui.Combobox(HelperGroup, "helper_ind_layout", "Layout", "Horizontal", "Vertical")
+local helper_indicator_multibox = gui.Multibox(HelperGroup, "Indicator")
+local helper_indicator_rage = gui.Checkbox(helper_indicator_multibox, "helper_indicator_rage","Legit/RageBot",false)
+local helper_indicator_aw  = gui.Checkbox(helper_indicator_multibox, "helper_indicator_aw",  "AutoWall", false)
+local helper_indicator_as  = gui.Checkbox(helper_indicator_multibox, "helper_indicator_as",  "ThroughSmoke", false)
+local helper_indicator_dt  = gui.Checkbox(helper_indicator_multibox, "helper_indicator_dt",  "DoubleTap", false)
+local helper_color_rage_on = gui.ColorPicker(helper_indicator_rage, "helper_color_rage_on", "On Color", 255, 0, 0, 255)
+local helper_color_rage_off = gui.ColorPicker(helper_indicator_rage, "helper_color_rage_off", "Off Color", 0, 255, 0, 255)
+local helper_color_aw_on  = gui.ColorPicker(helper_indicator_aw,  "helper_color_aw_on",  "On Color", 0, 255, 0, 255)
+local helper_color_aw_off  = gui.ColorPicker(helper_indicator_aw,  "helper_color_aw_off",  "Off Color", 195, 195, 195, 255)
+local helper_color_as_on  = gui.ColorPicker(helper_indicator_as,  "helper_color_as_on",  "On Color", 0, 255, 0, 255)
+local helper_color_as_off  = gui.ColorPicker(helper_indicator_as,  "helper_color_as_off",  "Off Color", 195, 195, 195, 255)
+local helper_color_dt_on  = gui.ColorPicker(helper_indicator_dt,  "helper_color_dt_on",  "On Color", 0, 255, 0, 255)
+local helper_color_dt_off  = gui.ColorPicker(helper_indicator_dt,  "helper_color_dt_off",  "Off Color", 195, 195, 195, 255)
+local helper_indicator_x = gui.Slider(HelperGroup, "helper_indicator_x", "X Offset", 0, -1000, 1000, 1)
+local helper_indicator_y = gui.Slider(HelperGroup, "helper_indicator_y", "Y Offset", 30, -200, 200, 1)
+local helper_indicator_layout = gui.Combobox(HelperGroup, "helper_indicator_layout", "Layout", "Vertical", "Horizontal")
+local helper_ind_v_align = gui.Combobox(HelperGroup, "helper_ind_v_align", "Align", "Center", "Left", "Right")
 
 local weapongroup = {"shared", "zeus", "pistol", "hpistol", "smg", "rifle", "shotgun", "scout", "asniper", "sniper", "lmg"}
 
@@ -2379,13 +2382,12 @@ local spin_enable = gui.Checkbox(SpinGroup, "spin_enable", "Enable", false)
 local spin_speed = gui.Slider(SpinGroup, "spin_speed", "Speed", 20, 1, 100, 1)
 local spin_mode = gui.Combobox(SpinGroup, "spin_mode", "Mode", "Down", "Horizontal", "Up", "Jitter")
 local indicator_multibox = gui.Multibox(SpinGroup, "Indicator")
-local indicator_show_spin  = gui.Checkbox(indicator_multibox, "indicator_spin",  "Spinning",  false)
+local indicator_show_spin  = gui.Checkbox(indicator_multibox, "indicator_spin",  "Spinning", false)
 local indicator_show_speed = gui.Checkbox(indicator_multibox, "indicator_speed", "Speed", false)
-local indicator_show_mode  = gui.Checkbox(indicator_multibox, "indicator_mode",  "Mode",  false)
-
-local indicator_color_spin  = gui.ColorPicker(indicator_show_spin,  "color_spin",  "Color", 0,   255, 0,   255)
-local indicator_color_speed = gui.ColorPicker(indicator_show_speed, "color_speed", "Color", 255, 165, 0,   255)
-local indicator_color_mode  = gui.ColorPicker(indicator_show_mode,  "color_mode",  "Color", 0,   191, 255, 255)
+local indicator_show_mode  = gui.Checkbox(indicator_multibox, "indicator_mode",  "Mode", false)
+local indicator_color_spin  = gui.ColorPicker(indicator_show_spin,  "color_spin",  "Color", 0, 255, 0, 255)
+local indicator_color_speed = gui.ColorPicker(indicator_show_speed, "color_speed", "Color", 255, 165, 0, 255)
+local indicator_color_mode  = gui.ColorPicker(indicator_show_mode,  "color_mode",  "Color", 0, 191, 255, 255)
 
 -- spin mode翻译表
 local spin_mode_names = {"Down", "Look", "Up", "Jitter"}
@@ -2522,7 +2524,7 @@ local WatermarkGroup = gui.Groupbox(YuzakiWindow, "Watermark", 550, 20, 250, 0)
 
 local watermark_enable   = gui.Checkbox(WatermarkGroup, "watermark_enable", "Enable", true)
 local watermark_color_theme = gui.ColorPicker(WatermarkGroup, "watermark_theme_color", "Theme Color", 236, 84, 81, 255)
-local watermark_style    = gui.Combobox(WatermarkGroup, "watermark_style",  "Style", "Skeet1", "Skeet2", "Neverlose Light", "Neverlose Dark")
+local watermark_style    = gui.Combobox(WatermarkGroup, "watermark_style",  "Style", "Skeet1", "Skeet2", "Neverlose Light", "Neverlose Dark", "ZEN Light", "ZEN Dark")
 
 -- 硬编码颜色
 local WM_COLOR_MAIN_R, WM_COLOR_MAIN_G, WM_COLOR_MAIN_B, WM_COLOR_MAIN_A = 255, 255, 255, 255   -- 主色：白色
@@ -2542,6 +2544,7 @@ local sk_font       = nil
 local sk_font_small = nil
 local nl_font       = nil
 local nl_font_bold   = nil
+local zen_logo_font  = nil
 local sk_fps_samples = {}
 local sk_fps_max     = 30
 local sk_last_pos    = nil
@@ -2562,6 +2565,9 @@ local function sk_init_fonts()
     if not nl_font_bold then
         nl_font_bold = draw.CreateFont("Arial", 14, 700)
     end
+    if not zen_logo_font then
+        zen_logo_font = draw.CreateFont("Arial", 14, 900)
+    end
 end
 
 -- 性能优化缓存
@@ -2573,8 +2579,8 @@ local last_rage_state = nil
 local last_dt_state = nil
 
 -- 助手指示器字体
-local helper_ind_font = nil
-local helper_ind_shadow = nil
+local helper_indicator_font = nil
+local helper_indicator_shadow = nil
 
 -- 绘制直角矩形
 local function drawRect(x, y, w, h, r, g, b, a)
@@ -2631,11 +2637,14 @@ end
 
 -- ==================== 水印样式注册表 ====================
 -- 每个样式是一个table，包含可选回调：
---   decor(x1,y1,x2,y2)  — 外层装饰（边框/特效等），在背景之前绘制
---   bg(x1,y1,x2,y2)     — 自定义背景（若提供则覆盖默认渐变背景）
---   logo(cx,ty)          — 自定义logo（若提供则覆盖默认aimsense），返回cx偏移
---   fade_w               — 自定义渐变宽度（nil则用默认25）
---   pad_extra            — 额外内边距（nil则用默认0）
+--   decor(x1,y1,x2,y2)       — 外层装饰（边框/特效等），在背景之前绘制
+--   bg(x1,y1,x2,y2)          — 自定义背景（若提供则覆盖默认渐变背景）
+--   logo(cx,ty,sep,rw,gw,bw,a,rg,gg,bg,ag) — 自定义logo，返回cx偏移
+--   calc_width(info_items)    — 自定义内容宽度计算，返回 content_w（若不提供则用默认逻辑）
+--   render_items(ctx)         — 自定义信息项绘制（若不提供则用默认SK绘制）
+--     ctx = { cx, ty, items, textW, draw, colors{rw,gw,bw,aw,rg,gg,bg,ag}, fonts, sep }
+--   fade_w                    — 自定义渐变宽度（nil则用默认25）
+--   pad_extra                 — 额外内边距（nil则用默认0）
 local watermark_styles = {}
 
 -- Skeet1: 简洁样式 — 无额外装饰，默认渐变背景 + aimsense logo
@@ -2708,6 +2717,9 @@ watermark_styles[2] = {
     logo_bg_r = 241, logo_bg_g = 241, logo_bg_b = 242, logo_bg_a = 200,
     logo_pad_h = 8,   -- Logo框水平内边距
     logo_gap  = 8,    -- Logo框与信息框之间的间距
+    -- NL分隔符配置
+    sep_char = "|",
+    sep_r = 200, sep_g = 200, sep_b = 200, sep_a = 160,
     bg = function(x1, y1, x2, y2)
         draw.Color(241, 241, 242, 200)
         draw.RoundedRectFill(x1, y1, x2, y2, 6)
@@ -2719,10 +2731,82 @@ watermark_styles[2] = {
         if not logo_font then return 0 end
         draw.SetFont(logo_font)
         local aw_str = "AW"
-        local tw = textW(aw_str)
+        local tw_val = textW(aw_str)
         draw.Color(rg, gg, bg, ag)  -- 使用主题色
         draw.Text(cx, ty, aw_str)
-        return tw
+        return tw_val
+    end,
+    -- NL独立宽度计算：基于分隔符拼接（不含logo，logo已由独立框处理）
+    calc_width = function(items)
+        local tw = items.textW
+        local w = 0
+        local sep_str = " | "
+        local sep_w = tw(sep_str)
+        local part_count = 0
+        local function add_part(str) w = w + tw(str); part_count = part_count + 1 end
+
+        if items.user.enabled then add_part(items.user.text) end
+        if items.fps.enabled then add_part(items.fps.num .. items.fps.label) end
+        if items.uptime.enabled then add_part(items.uptime.text) end
+        if items.ip.enabled then add_part(items.ip.text) end
+        if items.speed.enabled then add_part(items.speed.num .. items.speed.label) end
+
+        -- N个部分之间有 N-1 个分隔符
+        if part_count > 1 then w = w + (part_count - 1) * sep_w end
+        return w
+    end,
+    -- NL独立渲染：分隔符连接 + 无小标签 + 紧凑布局（不含logo）
+    render_items = function(ctx)
+        local cx = ctx.cx
+        local ty = ctx.ty
+        local tw = ctx.textW
+        local items = ctx.items
+        local rw, gwc, bw, aw = ctx.colors.rw, ctx.colors.gw, ctx.colors.bw, ctx.colors.aw
+        local rg, gg, bg, ag = ctx.colors.rg, ctx.colors.gg, ctx.colors.bg, ctx.colors.ag
+        local sep_str = " | "
+        local sep_w = tw(sep_str)
+
+        -- 每个part是一个信息单元，内部可有多段（不同颜色）
+        local parts = {}
+
+        if items.user.enabled then
+            parts[#parts+1] = {{text=items.user.text, color="main"}}
+        end
+        if items.fps.enabled then
+            parts[#parts+1] = {
+                {text=items.fps.num, color="main"},
+                {text=items.fps.label, color="main"},
+            }
+        end
+        if items.uptime.enabled then
+            parts[#parts+1] = {{text=items.uptime.text, color="main"}}
+        end
+        if items.ip.enabled then
+            parts[#parts+1] = {{text=items.ip.text, color="main"}}
+        end
+        if items.speed.enabled then
+            parts[#parts+1] = {
+                {text=items.speed.num, color="main"},
+                {text=items.speed.label, color="main"},
+            }
+        end
+
+        for i, part in ipairs(parts) do
+            -- 分隔符（每个part之间）
+            if i > 1 then
+                draw.SetFont(ctx.fonts.main)
+                draw.Color(200, 200, 200, 160)
+                draw.Text(cx, ty, sep_str)
+                cx = cx + sep_w
+            end
+            -- 部分内各段
+            for _, seg in ipairs(part) do
+                draw.SetFont(ctx.fonts.main)
+                draw.Color(rw, gwc, bw, aw)
+                draw.Text(cx, ty, seg.text)
+                cx = cx + tw(seg.text)
+            end
+        end
     end,
 }
 
@@ -2744,6 +2828,9 @@ watermark_styles[3] = {
     logo_bg_r = 45, logo_bg_g = 45, logo_bg_b = 45, logo_bg_a = 200,
     logo_pad_h = 8,
     logo_gap  = 8,
+    -- NL分隔符配置
+    sep_char = "|",
+    sep_r = 120, sep_g = 120, sep_b = 120, sep_a = 180,
     bg = function(x1, y1, x2, y2)
         draw.Color(45, 45, 45, 200)
         draw.RoundedRectFill(x1, y1, x2, y2, 6)
@@ -2754,12 +2841,424 @@ watermark_styles[3] = {
         if not logo_font then return 0 end
         draw.SetFont(logo_font)
         local aw_str = "AW"
-        local tw = textW(aw_str)
-        draw.Color(rg, gg, bg, ag)  -- 使用主题色
+        local tw_val = textW(aw_str)
+        draw.Color(rg, gg, bg, ag)
         draw.Text(cx, ty, aw_str)
-        return tw
+        return tw_val
+    end,
+    -- NL独立宽度计算（同NL Light逻辑，不含logo）
+    calc_width = function(items)
+        local tw = items.textW
+        local w = 0
+        local sep_str = " | "
+        local sep_w = tw(sep_str)
+        local part_count = 0
+        local function add_part(str) w = w + tw(str); part_count = part_count + 1 end
+
+        if items.user.enabled then add_part(items.user.text) end
+        if items.fps.enabled then add_part(items.fps.num .. items.fps.label) end
+        if items.uptime.enabled then add_part(items.uptime.text) end
+        if items.ip.enabled then add_part(items.ip.text) end
+        if items.speed.enabled then add_part(items.speed.num .. items.speed.label) end
+
+        if part_count > 1 then w = w + (part_count - 1) * sep_w end
+        return w
+    end,
+    -- NL独立渲染：分隔符连接 + 无小标签（不含logo）
+    render_items = function(ctx)
+        local cx = ctx.cx
+        local ty = ctx.ty
+        local tw = ctx.textW
+        local items = ctx.items
+        local rw, gwc, bw, aw = ctx.colors.rw, ctx.colors.gw, ctx.colors.bw, ctx.colors.aw
+        local rg, gg, bg, ag = ctx.colors.rg, ctx.colors.gg, ctx.colors.bg, ctx.colors.ag
+        local sep_str = " | "
+        local sep_w = tw(sep_str)
+
+        local parts = {}
+
+        if items.user.enabled then
+            parts[#parts+1] = {{text=items.user.text, color="main"}}
+        end
+        if items.fps.enabled then
+            parts[#parts+1] = {
+                {text=items.fps.num, color="main"},
+                {text=items.fps.label, color="main"},
+            }
+        end
+        if items.uptime.enabled then
+            parts[#parts+1] = {{text=items.uptime.text, color="main"}}
+        end
+        if items.ip.enabled then
+            parts[#parts+1] = {{text=items.ip.text, color="main"}}
+        end
+        if items.speed.enabled then
+            parts[#parts+1] = {
+                {text=items.speed.num, color="main"},
+                {text=items.speed.label, color="main"},
+            }
+        end
+
+        for i, part in ipairs(parts) do
+            if i > 1 then
+                draw.SetFont(ctx.fonts.main)
+                draw.Color(120, 120, 120, 180)
+                draw.Text(cx, ty, sep_str)
+                cx = cx + sep_w
+            end
+            for _, seg in ipairs(part) do
+                draw.SetFont(ctx.fonts.main)
+                draw.Color(rw, gwc, bw, aw)
+                draw.Text(cx, ty, seg.text)
+                cx = cx + tw(seg.text)
+            end
+        end
     end,
 }
+
+-- ZEN Light: 基于NL配色 + 居中位置 + 每个信息独立框（无分隔符）
+-- 背景色: #F1F1F2  主色: #4F4F4F  主题色由GUI控制
+watermark_styles[4] = {
+    fade_w   = 0,
+    pad_extra = 2,
+    centered = true,      -- 居中显示
+    independent_boxes = true,  -- 独立信息框模式
+    y_offset = 15,        -- 整体向下偏移
+    font     = function() return nl_font end,
+    no_small_label = true,
+    -- 配色 — 与NL Light相同
+    main_r = 79,   main_g = 79,   main_b = 79,   -- #4F4F4F
+    bg_r   = 241,  bg_g   = 241, bg_b   = 242,  -- #F1F1F2
+    bg_a   = 200,
+    -- Logo独立框配置
+    logo_box = true,
+    logo_bg_r = 241, logo_bg_g = 241, logo_bg_b = 242, logo_bg_a = 200,
+    logo_pad_h = 16,     -- Logo框水平内边距（增大）
+    logo_gap  = 8,       -- 框间距
+    box_height = 40,     -- 框高度（增大）
+    -- 信息框配置
+    box_pad_h = 16,      -- 信息框水平内边距（增大）
+    box_gap   = 8,       -- 信息框之间间距
+    box_radius = 6,      -- 圆角
+    bg = function(x1, y1, x2, y2)
+        draw.Color(241, 241, 242, 200)
+        draw.RoundedRectFill(x1, y1, x2, y2, 6)
+    end,
+    -- logo函数
+    logo = function(cx, ty, sep, rw, gwc, bw, aw_, rg, gg, bg, ag)
+        local logo_font = zen_logo_font or nl_font_bold or nl_font or sk_font
+        if type(logo_font) ~= "userdata" then logo_font = sk_font end
+        if not logo_font then return 0 end
+        draw.SetFont(logo_font)
+        local aw_str = "AIM"
+        local tw_val = textW(aw_str)
+        draw.Color(rg, gg, bg, ag)
+        draw.Text(cx, ty, aw_str)
+        return tw_val
+    end,
+    -- 宽度计算：每个信息独立框宽度之和 + 间距
+    calc_width = function(items)
+        local tw = items.textW
+        local pad_h = 16
+        local gap = 8
+        local total_w = 0
+        local count = 0
+        local function add_box(str)
+            total_w = total_w + tw(str) + pad_h * 2
+            count = count + 1
+        end
+
+        if items.user.enabled then add_box("CONFIG " .. items.user.text) end
+        if items.fps.enabled then add_box("FPS " .. items.fps.num) end
+        if items.uptime.enabled then add_box("TIME " .. items.uptime.text) end
+        if items.ip.enabled then add_box("SERVER IP " .. items.ip.text) end
+        if items.speed.enabled then add_box("SPEED " .. items.speed.num) end
+
+        -- N个框之间有 N-1 个间距
+        if count > 1 then total_w = total_w + (count - 1) * gap end
+        return total_w
+    end,
+    -- 渲染函数：每个信息绘制独立的圆角框
+    render_items = function(ctx)
+        local cx = ctx.cx
+        local ty = ctx.ty
+        local tw = ctx.textW
+        local items = ctx.items
+        local rw, gwc, bw, aw = ctx.colors.rw, ctx.colors.gw, ctx.colors.bw, ctx.colors.aw
+        local rg, gg, bg_, ag_ = ctx.colors.rg, ctx.colors.gg, ctx.colors.bg, ctx.colors.ag
+        local style_cfg = watermark_styles[4]
+
+        local pad_h = style_cfg.box_pad_h or 16
+        local gap = style_cfg.box_gap or 8
+        local radius = style_cfg.box_radius or 6
+        local box_h = style_cfg.box_height or 40
+
+        -- Logo字体（超粗体，字重900）
+        local logo_font = zen_logo_font or nl_font_bold or nl_font or sk_font
+        if type(logo_font) ~= "userdata" then logo_font = sk_font end
+
+        -- 构建所有启用的信息项（user项带CONFIG前缀标记）
+        local info_list = {}
+
+        if items.user.enabled then
+            info_list[#info_list+1] = {text = "CONFIG " .. items.user.text, is_config = true}
+        end
+        if items.fps.enabled then
+            info_list[#info_list+1] = {text = "FPS " .. items.fps.num, is_fps = true}
+        end
+        if items.uptime.enabled then
+            info_list[#info_list+1] = {text = "TIME " .. items.uptime.text, is_time = true}
+        end
+        if items.ip.enabled then
+            info_list[#info_list+1] = {text = "SERVER IP " .. items.ip.text, is_ip = true}
+        end
+        if items.speed.enabled then
+            info_list[#info_list+1] = {text = "SPEED " .. items.speed.num, is_speed = true}
+        end
+
+        -- 绘制每个独立圆角信息框
+        local box_y1 = ctx.y1 or ty  -- 使用框顶部位置，与Logo框对齐
+        for i, info in ipairs(info_list) do
+            local text_w = tw(info.text)
+            local box_w = text_w + pad_h * 2
+
+            -- 绘制背景框（与NL Light同色）— 从 y1 开始，与Logo框对齐
+            draw.Color(241, 241, 242, 200)
+            draw.RoundedRectFill(cx, box_y1, cx + box_w, box_y1 + box_h, radius)
+
+            if info.is_config then
+                -- CONFIG 前缀：使用Logo粗体 + 主题色
+                draw.SetFont(logo_font)
+                draw.Color(rg, gg, bg_, ag_)
+                draw.Text(cx + pad_h, ty, "CONFIG ")
+                local config_w = tw("CONFIG ")
+                -- 用户名文本：主字体 + 主色
+                draw.SetFont(ctx.fonts.main)
+                draw.Color(rw, gwc, bw, aw)
+                draw.Text(cx + pad_h + config_w, ty, items.user.text)
+            elseif info.is_fps then
+                -- FPS 前缀：使用Logo粗体 + 主题色
+                draw.SetFont(logo_font)
+                draw.Color(rg, gg, bg_, ag_)
+                draw.Text(cx + pad_h, ty, "FPS ")
+                local fps_prefix_w = tw("FPS ")
+                -- 数字：主字体 + 主色
+                draw.SetFont(ctx.fonts.main)
+                draw.Color(rw, gwc, bw, aw)
+                draw.Text(cx + pad_h + fps_prefix_w, ty, items.fps.num)
+            elseif info.is_time then
+                -- TIME 前缀：使用Logo粗体 + 主题色
+                draw.SetFont(logo_font)
+                draw.Color(rg, gg, bg_, ag_)
+                draw.Text(cx + pad_h, ty, "TIME ")
+                local time_prefix_w = tw("TIME ")
+                -- 时间文本：主字体 + 主色
+                draw.SetFont(ctx.fonts.main)
+                draw.Color(rw, gwc, bw, aw)
+                draw.Text(cx + pad_h + time_prefix_w, ty, items.uptime.text)
+            elseif info.is_ip then
+                -- SERVER IP 前缀：使用Logo粗体 + 主题色
+                draw.SetFont(logo_font)
+                draw.Color(rg, gg, bg_, ag_)
+                draw.Text(cx + pad_h, ty, "SERVER IP ")
+                local ip_prefix_w = tw("SERVER IP ")
+                -- IP文本：主字体 + 主色
+                draw.SetFont(ctx.fonts.main)
+                draw.Color(rw, gwc, bw, aw)
+                draw.Text(cx + pad_h + ip_prefix_w, ty, items.ip.text)
+            elseif info.is_speed then
+                -- SPEED 前缀：使用Logo粗体 + 主题色
+                draw.SetFont(logo_font)
+                draw.Color(rg, gg, bg_, ag_)
+                draw.Text(cx + pad_h, ty, "SPEED ")
+                local speed_prefix_w = tw("SPEED ")
+                -- 数字：主字体 + 主色
+                draw.SetFont(ctx.fonts.main)
+                draw.Color(rw, gwc, bw, aw)
+                draw.Text(cx + pad_h + speed_prefix_w, ty, items.speed.num)
+            else
+                -- 设置字体并绘制文字（与NL相同的渲染方式）— 文字在框内垂直居中
+                draw.SetFont(ctx.fonts.main)
+                draw.Color(rw, gwc, bw, aw)
+                draw.Text(cx + pad_h, ty, info.text)
+            end
+
+            -- 移动到下一个框位置
+            cx = cx + box_w + gap
+        end
+    end,
+}
+
+-- ZEN Dark: 基于NL Dark配色 + 居中位置 + 每个信息独立框（无分隔符）
+-- 背景色: #2D2D2D  主色: #E0E0E0  主题色由GUI控制
+watermark_styles[5] = {
+    fade_w   = 0,
+    pad_extra = 2,
+    centered = true,      -- 居中显示
+    independent_boxes = true,  -- 独立信息框模式
+    y_offset = 15,        -- 整体向下偏移
+    font     = function() return nl_font end,
+    no_small_label = true,
+    -- 配色 — 与NL Dark相同
+    main_r = 224,  main_g = 224, main_b = 224,  -- #E0E0E0
+    bg_r   = 45,   bg_g   = 45,  bg_b   = 45,   -- #2D2D2D
+    bg_a   = 200,
+    -- Logo独立框配置
+    logo_box = true,
+    logo_bg_r = 45, logo_bg_g = 45, logo_bg_b = 45, logo_bg_a = 200,
+    logo_pad_h = 16,     -- Logo框水平内边距（增大）
+    logo_gap  = 8,       -- 框间距
+    box_height = 40,     -- 框高度（增大）
+    -- 信息框配置
+    box_pad_h = 16,      -- 信息框水平内边距（增大）
+    box_gap   = 8,       -- 信息框之间间距
+    box_radius = 6,      -- 圆角
+    bg = function(x1, y1, x2, y2)
+        draw.Color(45, 45, 45, 200)
+        draw.RoundedRectFill(x1, y1, x2, y2, 6)
+    end,
+    -- logo函数
+    logo = function(cx, ty, sep, rw, gwc, bw, aw_, rg, gg, bg, ag)
+        local logo_font = zen_logo_font or nl_font_bold or nl_font or sk_font
+        if type(logo_font) ~= "userdata" then logo_font = sk_font end
+        if not logo_font then return 0 end
+        draw.SetFont(logo_font)
+        local aw_str = "AIM"
+        local tw_val = textW(aw_str)
+        draw.Color(rg, gg, bg, ag)
+        draw.Text(cx, ty, aw_str)
+        return tw_val
+    end,
+    -- 宽度计算：每个信息独立框宽度之和 + 间距（同ZEN Light逻辑）
+    calc_width = function(items)
+        local tw = items.textW
+        local pad_h = 16
+        local gap = 8
+        local total_w = 0
+        local count = 0
+        local function add_box(str)
+            total_w = total_w + tw(str) + pad_h * 2
+            count = count + 1
+        end
+
+        if items.user.enabled then add_box("CONFIG " .. items.user.text) end
+        if items.fps.enabled then add_box("FPS " .. items.fps.num) end
+        if items.uptime.enabled then add_box("TIME " .. items.uptime.text) end
+        if items.ip.enabled then add_box("SERVER IP " .. items.ip.text) end
+        if items.speed.enabled then add_box("SPEED " .. items.speed.num) end
+
+        if count > 1 then total_w = total_w + (count - 1) * gap end
+        return total_w
+    end,
+    -- 渲染函数：每个信息绘制独立的深色圆角框
+    render_items = function(ctx)
+        local cx = ctx.cx
+        local ty = ctx.ty
+        local tw = ctx.textW
+        local items = ctx.items
+        local rw, gwc, bw, aw = ctx.colors.rw, ctx.colors.gw, ctx.colors.bw, ctx.colors.aw
+        local rg, gg, bg_, ag_ = ctx.colors.rg, ctx.colors.gg, ctx.colors.bg, ctx.colors.ag
+        local style_cfg = watermark_styles[5]
+
+        local pad_h = style_cfg.box_pad_h or 16
+        local gap = style_cfg.box_gap or 8
+        local radius = style_cfg.box_radius or 6
+        local box_h = style_cfg.box_height or 40
+
+        -- Logo字体（超粗体，字重900）
+        local logo_font = zen_logo_font or nl_font_bold or nl_font or sk_font
+        if type(logo_font) ~= "userdata" then logo_font = sk_font end
+
+        local info_list = {}
+
+        if items.user.enabled then
+            info_list[#info_list+1] = {text = "CONFIG " .. items.user.text, is_config = true}
+        end
+        if items.fps.enabled then
+            info_list[#info_list+1] = {text = "FPS " .. items.fps.num, is_fps = true}
+        end
+        if items.uptime.enabled then
+            info_list[#info_list+1] = {text = "TIME " .. items.uptime.text, is_time = true}
+        end
+        if items.ip.enabled then
+            info_list[#info_list+1] = {text = "SERVER IP " .. items.ip.text, is_ip = true}
+        end
+        if items.speed.enabled then
+            info_list[#info_list+1] = {text = "SPEED " .. items.speed.num, is_speed = true}
+        end
+
+        -- 绘制每个独立圆角信息框（深色主题）
+        local box_y1 = ctx.y1 or ty  -- 使用框顶部位置，与Logo框对齐
+        for i, info in ipairs(info_list) do
+            local text_w = tw(info.text)
+            local box_w = text_w + pad_h * 2
+
+            -- 绘制深色背景框（与NL Dark同色）— 从 y1 开始，与Logo框对齐
+            draw.Color(45, 45, 45, 200)
+            draw.RoundedRectFill(cx, box_y1, cx + box_w, box_y1 + box_h, radius)
+
+            if info.is_config then
+                -- CONFIG 前缀：使用Logo粗体 + 主题色
+                draw.SetFont(logo_font)
+                draw.Color(rg, gg, bg_, ag_)
+                draw.Text(cx + pad_h, ty, "CONFIG ")
+                local config_w = tw("CONFIG ")
+                -- 用户名文本：主字体 + 主色
+                draw.SetFont(ctx.fonts.main)
+                draw.Color(rw, gwc, bw, aw)
+                draw.Text(cx + pad_h + config_w, ty, items.user.text)
+            elseif info.is_fps then
+                -- FPS 前缀：使用Logo粗体 + 主题色
+                draw.SetFont(logo_font)
+                draw.Color(rg, gg, bg_, ag_)
+                draw.Text(cx + pad_h, ty, "FPS ")
+                local fps_prefix_w = tw("FPS ")
+                -- 数字：主字体 + 主色
+                draw.SetFont(ctx.fonts.main)
+                draw.Color(rw, gwc, bw, aw)
+                draw.Text(cx + pad_h + fps_prefix_w, ty, items.fps.num)
+            elseif info.is_time then
+                -- TIME 前缀：使用Logo粗体 + 主题色
+                draw.SetFont(logo_font)
+                draw.Color(rg, gg, bg_, ag_)
+                draw.Text(cx + pad_h, ty, "TIME ")
+                local time_prefix_w = tw("TIME ")
+                -- 时间文本：主字体 + 主色
+                draw.SetFont(ctx.fonts.main)
+                draw.Color(rw, gwc, bw, aw)
+                draw.Text(cx + pad_h + time_prefix_w, ty, items.uptime.text)
+            elseif info.is_ip then
+                -- SERVER IP 前缀：使用Logo粗体 + 主题色
+                draw.SetFont(logo_font)
+                draw.Color(rg, gg, bg_, ag_)
+                draw.Text(cx + pad_h, ty, "SERVER IP ")
+                local ip_prefix_w = tw("SERVER IP ")
+                -- IP文本：主字体 + 主色
+                draw.SetFont(ctx.fonts.main)
+                draw.Color(rw, gwc, bw, aw)
+                draw.Text(cx + pad_h + ip_prefix_w, ty, items.ip.text)
+            elseif info.is_speed then
+                -- SPEED 前缀：使用Logo粗体 + 主题色
+                draw.SetFont(logo_font)
+                draw.Color(rg, gg, bg_, ag_)
+                draw.Text(cx + pad_h, ty, "SPEED ")
+                local speed_prefix_w = tw("SPEED ")
+                -- 数字：主字体 + 主色
+                draw.SetFont(ctx.fonts.main)
+                draw.Color(rw, gwc, bw, aw)
+                draw.Text(cx + pad_h + speed_prefix_w, ty, items.speed.num)
+            else
+                -- 字体渲染（与NL相同方式）— 文字在框内垂直居中
+                draw.SetFont(ctx.fonts.main)
+                draw.Color(rw, gwc, bw, aw)
+                draw.Text(cx + pad_h, ty, info.text)
+            end
+
+            cx = cx + box_w + gap
+        end
+    end,
+}
+
 local function drawWatermark()
     if not watermark_enable:GetValue() then return end
 
@@ -2859,6 +3358,10 @@ local function drawWatermark()
     local my_fade_w   = style_cfg.fade_w or 25
     local my_pad_extra = style_cfg.pad_extra or 0
     local my_pad      = pad + my_pad_extra
+    -- ZEN独立框模式：使用更大的bar_h
+    if style_cfg.independent_boxes then
+        bar_h = style_cfg.box_height or 40
+    end
     local use_small_label = not style_cfg.no_small_label
     -- 样式自定义文字绘制函数
     local draw_fn = style_cfg.draw_text or sk_text_shadow
@@ -2873,17 +3376,6 @@ local function drawWatermark()
         cx = cx + textW(" " .. sep_char .. " ")
     end
 
-    -- 动态计算内容宽度
-    local content_w = 0
-    local item_count = 0
-    local sep_str = sep_char and (" " .. sep_char .. " ")
-    local sep_w = sep_str and textW(sep_str) or 0
-    local function add_w(str)
-        -- 与绘制完全一致：每项文字后都有尾随 sep
-        content_w = content_w + textW(str) + sep
-        item_count = item_count + 1
-    end
-
     -- 独立Logo框尺寸计算（仅 logo_box 模式）
     local logo_box_w = 0
     local use_logo_box = style_cfg.logo_box and watermark_en_logo:GetValue() and style_cfg.logo
@@ -2892,53 +3384,102 @@ local function drawWatermark()
         logo_box_w = textW("AW") + lp * 2  -- 文字宽 + 左右内边距
     end
 
-    -- logo宽度（自定义logo不占用item_count，单独计算）
-    if watermark_en_logo:GetValue() then
-        if not use_logo_box then
-            if style_cfg.logo then
-                content_w = content_w + textW("AW") + sep
-            else
-                add_w("aim")
-                add_w("sense")
+    -- 构建信息项数据表（供样式回调使用）
+    local info_items = {
+        textW = textW,
+        logo   = { enabled = watermark_en_logo:GetValue() },
+        user   = { enabled = watermark_en_user:GetValue(),   text = uname },
+        fps    = { enabled = watermark_en_fps:GetValue(),    num = num_str, label = txt_str },
+        uptime = { enabled = watermark_en_uptime:GetValue(), text = uptime_str },
+        ip     = { enabled = watermark_en_ip:GetValue(),     text = ip_str },
+        speed  = { enabled = watermark_en_speed:GetValue(),  num = spd_num, label = spd_txt },
+    }
+
+    -- 内容宽度计算（样式自定义 或 默认SK逻辑）
+    local content_w
+    if style_cfg.calc_width then
+        -- 样式自带宽度计算（如NL分隔符模式）
+        content_w = style_cfg.calc_width(info_items)
+    else
+        -- 默认SK逻辑：每项 + 尾随sep
+        content_w = 0
+        local function add_w(str) content_w = content_w + textW(str) + sep end
+
+        if info_items.logo.enabled then
+            if not use_logo_box then
+                if style_cfg.logo then
+                    content_w = content_w + textW("AW") + sep
+                else
+                    add_w("aim")
+                    add_w("sense")
+                end
             end
         end
-        -- logo_box 模式下 logo 宽度已由 logo_box_w 单独处理，不计入 content_w
-    end
-    if watermark_en_user:GetValue()   then add_w(uname) end
-    if watermark_en_fps:GetValue()    then
-        content_w = content_w + textW(num_str) + textW(txt_str) + sep
-        item_count = item_count + 2
-    end
-    if watermark_en_uptime:GetValue() then add_w(uptime_str) end
-    if watermark_en_ip:GetValue()     then add_w(ip_str) end
-    if watermark_en_speed:GetValue() then
-        -- Speed是复合项（数字+标签），实际绘制只末尾加一个sep
-        content_w = content_w + textW(spd_num) + textW(spd_txt) + sep
-        item_count = item_count + 2
+        if info_items.user.enabled   then add_w(uname) end
+        if info_items.fps.enabled    then
+            content_w = content_w + textW(num_str) + textW(txt_str) + sep
+        end
+        if info_items.uptime.enabled then add_w(uptime_str) end
+        if info_items.ip.enabled     then add_w(ip_str) end
+        if info_items.speed.enabled  then
+            content_w = content_w + textW(spd_num) + textW(spd_txt) + sep
+        end
     end
 
     -- 双框模式下：总宽 = Logo框 + 间距 + 信息框(含左右对称内边距)
     local lgap = use_logo_box and (style_cfg.logo_gap or 3) or 0
     local bar_w
-    if use_logo_box then
+
+    -- ZEN独立框模式：每个信息独立圆角框，宽度由calc_width直接返回总宽
+    -- 只有当Logo实际启用时才计入logo宽度和间距
+    if style_cfg.independent_boxes and style_cfg.calc_width then
+        if use_logo_box and watermark_en_logo:GetValue() then
+            bar_w = logo_box_w + lgap + content_w
+        else
+            bar_w = content_w
+        end
+    elseif use_logo_box then
         -- 双框：信息框仅用 pad_min 做左右对称内边距
         bar_w = logo_box_w + lgap + content_w + pad_min * 2
     else
         -- 单框：原有公式
         bar_w = content_w + my_fade_w * 2 + my_pad * 2 + pad_min * 2 + logo_box_w
     end
-    local x1 = sw - bar_w - margin
-    local y1 = margin
-    local x2 = sw - margin
-    local y2 = y1 + bar_h
+
+    -- 位置计算：支持居中或默认右上角
+    local x1, y1, x2, y2
+    local y_off = style_cfg.y_offset or 0  -- ZEN向下偏移
+    if style_cfg.centered then
+        -- ZEN样式：居中在屏幕顶部 + 向下偏移
+        x1 = math.floor((sw - bar_w) / 2)
+        y1 = margin + y_off
+        x2 = x1 + bar_w
+        y2 = y1 + bar_h
+    else
+        -- 默认：右上角对齐
+        x1 = sw - bar_w - margin
+        y1 = margin
+        x2 = sw - margin
+        y2 = y1 + bar_h
+    end
 
     -- 1. 样式装饰（外框/边框/特效）
     if style_cfg.decor then
         style_cfg.decor(x1, y1, x2, y2)
     end
 
-    -- 2. 背景 — 双框分离模式或单框模式
-    if use_logo_box then
+    -- 2. 背景 — 双框分离模式或单框模式（ZEN独立框模式仅绘制Logo框）
+    if style_cfg.independent_boxes then
+        -- ZEN独立框模式：只绘制Logo框，信息框由render_items各自绘制
+        if use_logo_box and watermark_en_logo:GetValue() then
+            local lbr = style_cfg.logo_bg_r or s_rg
+            local lbg = style_cfg.logo_bg_g or s_gg
+            local lbb = style_cfg.logo_bg_b or s_bg
+            local lba = style_cfg.logo_bg_a or 255
+            draw.Color(lbr, lbg, lbb, lba)
+            draw.RoundedRectFill(x1, y1, x1 + logo_box_w, y2, 6)
+        end
+    elseif use_logo_box then
         -- 左侧 Logo 独立圆角矩形
         local lbr = style_cfg.logo_bg_r or s_rg
         local lbg = style_cfg.logo_bg_g or s_gg
@@ -2971,6 +3512,10 @@ local function drawWatermark()
         end
     end
 
+    -- NL样式模糊效果（Neverlose Light / Dark）
+    if style_idx == 2 or style_idx == 3 then
+    end
+
     -- 文字基线
     local _, th = draw.GetTextSize("A")
     local ty = y1 + math.floor((bar_h - th) / 2)
@@ -2990,79 +3535,99 @@ local function drawWatermark()
 
     -- 信息文字起始位置（双框模式从右侧框开始，普通模式从左侧开始）
     local cx
-    if use_logo_box then
+    if style_cfg.independent_boxes then
+        -- ZEN独立框模式：从Logo框后直接开始（每个框自带内边距）
+        if use_logo_box and watermark_en_logo:GetValue() then
+            cx = x1 + logo_box_w + lgap
+        else
+            cx = x1
+        end
+    elseif use_logo_box then
         cx = x1 + logo_box_w + lgap + pad_min
     else
         cx = x1 + my_fade_w + my_pad + pad_min
     end
 
-    -- Logo（非独立框模式：内联绘制）
-    if watermark_en_logo:GetValue() and not use_logo_box then
-        if style_cfg.logo then
-            local logo_off = style_cfg.logo(cx, ty, sep, s_rw, s_gw, s_bw, s_aw, s_rg, s_gg, s_bg, s_ag)
-            cx = cx + (logo_off or 0)
-            if active_font then draw.SetFont(active_font) end
-        else
-            -- 默认aimsense (aim=主色, sense=副色)
-            local aim_w = textW("aim")
-            draw_fn(cx, ty, "aim", s_rw, s_gw, s_bw, s_aw)
-            if active_font then draw.SetFont(active_font) end
-            draw_fn(cx + aim_w, ty, "sense", s_rg, s_gg, s_bg, s_ag)
-            cx = cx + aim_w + textW("sense") + sep
+    -- 信息项渲染（样式自定义 或 默认SK逻辑）
+    if style_cfg.render_items then
+        -- 样式自带渲染器：构建上下文并委托
+        local render_ctx = {
+            cx = cx,
+            ty = ty,
+            y1 = y1,
+            y2 = y2,
+            items = info_items,
+            textW = textW,
+            colors = { rw = s_rw, gw = s_gw, bw = s_bw, aw = s_aw,
+                       rg = s_rg, gg = s_gg, bg = s_bg, ag = s_ag },
+            fonts  = { main = active_font, small = active_font_small },
+            sep    = sep,
+        }
+        style_cfg.render_items(render_ctx)
+    else
+        -- 默认SK渲染逻辑
+        -- Logo（非独立框模式：内联绘制）
+        if info_items.logo.enabled and not use_logo_box then
+            if style_cfg.logo then
+                local logo_off = style_cfg.logo(cx, ty, sep, s_rw, s_gw, s_bw, s_aw, s_rg, s_gg, s_bg, s_ag)
+                cx = cx + (logo_off or 0)
+                if active_font then draw.SetFont(active_font) end
+            else
+                local aim_w = textW("aim")
+                draw_fn(cx, ty, "aim", s_rw, s_gw, s_bw, s_aw)
+                if active_font then draw.SetFont(active_font) end
+                draw_fn(cx + aim_w, ty, "sense", s_rg, s_gg, s_bg, s_ag)
+                cx = cx + aim_w + textW("sense") + sep
+            end
         end
-    end
 
-    -- 用户名
-    if watermark_en_user:GetValue() then
-        local uw = textW(uname)
-        sk_text_shadow(cx, ty, uname, s_rw, s_gw, s_bw, s_aw)
-        cx = cx + uw + sep
-    end
-
-    -- FPS
-    if watermark_en_fps:GetValue() then
-        local nw = textW(num_str)
-        sk_text_shadow(cx, ty, num_str, s_rg, s_gg, s_bg, s_ag)
-        if use_small_label then
-            draw.SetFont(active_font_small)
-            local tw, tsh = draw.GetTextSize(txt_str)
-            local fy = ty + math.floor((th - tsh) / 2) + 3
-            sk_text_shadow(cx + nw, fy, txt_str, s_rw, s_gw, s_bw, s_aw)
-            draw.SetFont(active_font)
-        else
-            sk_text_shadow(cx + nw, ty, txt_str, s_rw, s_gw, s_bw, s_aw)
+        if info_items.user.enabled then
+            local uw = textW(uname)
+            sk_text_shadow(cx, ty, uname, s_rw, s_gw, s_bw, s_aw)
+            cx = cx + uw + sep
         end
-        cx = cx + nw + (use_small_label and draw.GetTextSize(txt_str) or textW(txt_str)) + sep
-    end
 
-    -- 运行时间
-    if watermark_en_uptime:GetValue() then
-        local uw = textW(uptime_str)
-        sk_text_shadow(cx, ty, uptime_str, s_rg, s_gg, s_bg, s_ag)
-        cx = cx + uw + sep
-    end
-
-    -- IP
-    if watermark_en_ip:GetValue() then
-        local iw = textW(ip_str)
-        sk_text_shadow(cx, ty, ip_str, s_rw, s_gw, s_bw, s_aw)
-        cx = cx + iw + sep
-    end
-
-    -- 速度
-    if watermark_en_speed:GetValue() then
-        local snw = textW(spd_num)
-        sk_text_shadow(cx, ty, spd_num, s_rg, s_gg, s_bg, s_ag)
-        if use_small_label then
-            draw.SetFont(active_font_small)
-            local stw, ssh = draw.GetTextSize(spd_txt)
-            local sy = ty + math.floor((th - ssh) / 2) + 3
-            sk_text_shadow(cx + snw, sy, spd_txt, s_rw, s_gw, s_bw, s_aw)
-            draw.SetFont(active_font)
-        else
-            sk_text_shadow(cx + snw, ty, spd_txt, s_rw, s_gw, s_bw, s_aw)
+        if info_items.fps.enabled then
+            local nw = textW(num_str)
+            sk_text_shadow(cx, ty, num_str, s_rg, s_gg, s_bg, s_ag)
+            if use_small_label then
+                draw.SetFont(active_font_small)
+                local tw2, tsh = draw.GetTextSize(txt_str)
+                local fy = ty + math.floor((th - tsh) / 2) + 3
+                sk_text_shadow(cx + nw, fy, txt_str, s_rw, s_gw, s_bw, s_aw)
+                draw.SetFont(active_font)
+            else
+                sk_text_shadow(cx + nw, ty, txt_str, s_rw, s_gw, s_bw, s_aw)
+            end
+            cx = cx + nw + (use_small_label and draw.GetTextSize(txt_str) or textW(txt_str)) + sep
         end
-        cx = cx + snw + (use_small_label and draw.GetTextSize(spd_txt) or textW(spd_txt)) + sep
+
+        if info_items.uptime.enabled then
+            local uw = textW(uptime_str)
+            sk_text_shadow(cx, ty, uptime_str, s_rg, s_gg, s_bg, s_ag)
+            cx = cx + uw + sep
+        end
+
+        if info_items.ip.enabled then
+            local iw = textW(ip_str)
+            sk_text_shadow(cx, ty, ip_str, s_rw, s_gw, s_bw, s_aw)
+            cx = cx + iw + sep
+        end
+
+        if info_items.speed.enabled then
+            local snw = textW(spd_num)
+            sk_text_shadow(cx, ty, spd_num, s_rg, s_gg, s_bg, s_ag)
+            if use_small_label then
+                draw.SetFont(active_font_small)
+                local stw, ssh = draw.GetTextSize(spd_txt)
+                local sy = ty + math.floor((th - ssh) / 2) + 3
+                sk_text_shadow(cx + snw, sy, spd_txt, s_rw, s_gw, s_bw, s_aw)
+                draw.SetFont(active_font)
+            else
+                sk_text_shadow(cx + snw, ty, spd_txt, s_rw, s_gw, s_bw, s_aw)
+            end
+            cx = cx + snw + (use_small_label and draw.GetTextSize(spd_txt) or textW(spd_txt)) + sep
+        end
     end
 end
 
@@ -3071,6 +3636,7 @@ local HitlogsGroup = gui.Groupbox(YuzakiWindow, "Hitlog", 550, 230, 250, 0)
 local hitlogs_enable = gui.Checkbox(HitlogsGroup, "hitlogs_enable", "Enable", false)
 local hitlogs_theme = gui.Combobox(HitlogsGroup, "hitlogs_theme", "Theme", "Dark", "Light")
 local hitlogs_offset_y = gui.Slider(HitlogsGroup, "hitlogs_offset_y", "Y Offset", 100, 0, 500, 1)
+local hitlogs_bg_alpha = gui.Slider(HitlogsGroup, "hitlogs_bg_alpha", "Background Opacity", 75, 50, 100, 1)
 
 -- 模式配色预设
 local HL_THEMES = {
@@ -3204,9 +3770,10 @@ local function drawHitlogs()
                 local bg_x2 = x_pos + total_w / 2 + PAD
                 local bg_y2 = y_pos + font_size + PAD
 
-                -- 背景颜色根据模式
+                -- 背景颜色根据模式（不透明度由用户控制）
                 local theme = HL_THEMES[hitlogs_theme:GetValue()]
-                draw.Color(theme.bg_r, theme.bg_g, theme.bg_b, animation_scaler * theme.bg_a)
+                local user_alpha = math.floor(hitlogs_bg_alpha:GetValue() / 100 * 255)
+                draw.Color(theme.bg_r, theme.bg_g, theme.bg_b, animation_scaler * user_alpha)
                 draw.RoundedRectFill(bg_x1, bg_y1, bg_x2, bg_y2, 5)
 
                 -- 逐段绘制阴影 + 彩色文字
@@ -3323,7 +3890,7 @@ callbacks.Register("Draw", function()
             last_autowall_state = autowall_state
         end
 
-        local smoke_state = helper_smoke:GetValue()
+        local smoke_state = helper_throughsmoke:GetValue()
         if smoke_state ~= last_smoke_state then
             for i = 1, #weapongroup do
                 gui.SetValue("lbot.weapon.vis." .. weapongroup[i] .. ".smoke", smoke_state)
@@ -3331,7 +3898,7 @@ callbacks.Register("Draw", function()
             last_smoke_state = smoke_state
         end
 
-        local rage_state = helper_rage:GetValue()
+        local rage_state = helper_ragebot:GetValue()
         if rage_state ~= last_rage_state then
             if rage_state then
                 gui.SetValue("rbot.master", 1)
@@ -3343,77 +3910,107 @@ callbacks.Register("Draw", function()
             last_rage_state = rage_state
         end
 
-        local dt_state = helper_dt:GetValue()
+        local dt_state = helper_doubletap:GetValue()
         if dt_state ~= last_dt_state then
             gui.SetValue("rbot.doubletap", dt_state and 1 or 0)
             last_dt_state = dt_state
         end
 
         -- 助手指示器绘制（与功能开关独立）
-        local show_any = helper_show_aw:GetValue() or helper_show_as:GetValue() or helper_show_rage:GetValue() or helper_show_dt:GetValue()
+        local show_any = helper_indicator_aw:GetValue() or helper_indicator_as:GetValue() or helper_indicator_rage:GetValue() or helper_indicator_dt:GetValue()
         if show_any then
-        if helper_ind_font == nil then
-            helper_ind_font = draw.CreateFont("Arial", 12, 400)
-            helper_ind_shadow = draw.CreateFont("Arial", 12, 400, true)
+        if helper_indicator_font == nil then
+            helper_indicator_font = draw.CreateFont("Arial", 12, 400)
+            helper_indicator_shadow = draw.CreateFont("Arial", 12, 400, true)
         end
 
         local segments = {}
 
         -- 1. RageBot / LegitBot（始终显示状态）
-        if helper_show_rage:GetValue() then
-            if helper_rage:GetValue() then
-                local r, g, b, a = helper_color_rage:GetValue()
+        if helper_indicator_rage:GetValue() then
+            if helper_ragebot:GetValue() then
+                local r, g, b, a = helper_color_rage_on:GetValue()
                 segments[#segments + 1] = {"RageBot", r, g, b, a}
             else
-                segments[#segments + 1] = {"LegitBot", 0, 255, 0, 255}
+                local r, g, b, a = helper_color_rage_off:GetValue()
+                segments[#segments + 1] = {"LegitBot", r, g, b, a}
             end
         end
 
-        -- 2. AutoWall（功能开启时才显示）
-        if helper_show_aw:GetValue() and helper_autowall:GetValue() then
-            local r, g, b, a = helper_color_aw:GetValue()
-            segments[#segments + 1] = {"AutoWall", r, g, b, a}
+        -- 2. AutoWall（始终显示状态）
+        if helper_indicator_aw:GetValue() then
+            if helper_autowall:GetValue() then
+                local r, g, b, a = helper_color_aw_on:GetValue()
+                segments[#segments + 1] = {"AutoWall", r, g, b, a}
+            else
+                local r, g, b, a = helper_color_aw_off:GetValue()
+                segments[#segments + 1] = {"AutoWall", r, g, b, a}
+            end
         end
 
-        -- 3. ThroughSmoke（功能开启时才显示）
-        if helper_show_as:GetValue() and helper_smoke:GetValue() then
-            local r, g, b, a = helper_color_as:GetValue()
-            segments[#segments + 1] = {"ThroughSmoke", r, g, b, a}
+        -- 3. ThroughSmoke（始终显示状态）
+        if helper_indicator_as:GetValue() then
+            if helper_throughsmoke:GetValue() then
+                local r, g, b, a = helper_color_as_on:GetValue()
+                segments[#segments + 1] = {"ThroughSmoke", r, g, b, a}
+            else
+                local r, g, b, a = helper_color_as_off:GetValue()
+                segments[#segments + 1] = {"ThroughSmoke", r, g, b, a}
+            end
         end
 
-        -- 4. DT（功能开启时才显示）
-        if helper_show_dt:GetValue() and helper_dt:GetValue() then
-            local r, g, b, a = helper_color_dt:GetValue()
-            segments[#segments + 1] = {"DT", r, g, b, a}
+        -- 4. DT（始终显示状态）
+        if helper_indicator_dt:GetValue() then
+            if helper_doubletap:GetValue() then
+                local r, g, b, a = helper_color_dt_on:GetValue()
+                segments[#segments + 1] = {"DoubleTap", r, g, b, a}
+            else
+                local r, g, b, a = helper_color_dt_off:GetValue()
+                segments[#segments + 1] = {"DoubleTap", r, g, b, a}
+            end
         end
 
         if #segments > 0 then
-            local is_vertical = helper_ind_layout:GetValue() == 1
+            local is_vertical = helper_indicator_layout:GetValue() == 0
 
             if is_vertical then
-                -- 竖向排列：每行居中显示一个项目
-                draw.SetFont(helper_ind_font)
+                -- 竖向排列：根据对齐方式显示
+                draw.SetFont(helper_indicator_font)
                 local line_h = 14 + 4
                 local total_h = #segments * line_h - 4
                 local start_cy = screen_height / 2 + helper_indicator_y:GetValue()
+                local x_offset = helper_indicator_x:GetValue()
+                local align_mode = helper_ind_v_align:GetValue()  -- 0=Center, 1=Left, 2=Right
 
                 for i, seg in ipairs(segments) do
                     local text_w = draw.GetTextSize(seg[1])
-                    local cx = screen_width / 2 - text_w / 2
-                    local cy = start_cy + (i - 1) * line_h
+                    local cx, cy
 
-                    if helper_ind_shadow then
-                        draw.SetFont(helper_ind_shadow)
+                    cy = start_cy + (i - 1) * line_h
+
+                    if align_mode == 0 then
+                        -- 居中
+                        cx = screen_width / 2 - text_w / 2 + x_offset
+                    elseif align_mode == 1 then
+                        -- 左对齐
+                        cx = screen_width / 2 + x_offset
+                    else
+                        -- 右对齐
+                        cx = screen_width / 2 - text_w + x_offset
+                    end
+
+                    if helper_indicator_shadow then
+                        draw.SetFont(helper_indicator_shadow)
                         draw.Color(0, 0, 0, math.floor(seg[5] * 0.6))
                         draw.Text(cx + 1, cy + 1, seg[1])
                     end
-                    draw.SetFont(helper_ind_font)
+                    draw.SetFont(helper_indicator_font)
                     draw.Color(seg[2], seg[3], seg[4], seg[5])
                     draw.Text(cx, cy, seg[1])
                 end
             else
                 -- 横向排列：同一行内联，用 | 分隔
-                draw.SetFont(helper_ind_font)
+                draw.SetFont(helper_indicator_font)
                 local SEP = " | "
                 local total_w = 0
                 for _, seg in ipairs(segments) do
@@ -3425,23 +4022,23 @@ callbacks.Register("Draw", function()
                 local cy = screen_height / 2 + helper_indicator_y:GetValue()
 
                 for i, seg in ipairs(segments) do
-                    if helper_ind_shadow then
-                        draw.SetFont(helper_ind_shadow)
+                    if helper_indicator_shadow then
+                        draw.SetFont(helper_indicator_shadow)
                         draw.Color(0, 0, 0, math.floor(seg[5] * 0.6))
                         draw.Text(cx + 1, cy + 1, seg[1])
                     end
-                    draw.SetFont(helper_ind_font)
+                    draw.SetFont(helper_indicator_font)
                     draw.Color(seg[2], seg[3], seg[4], seg[5])
                     draw.Text(cx, cy, seg[1])
                     cx = cx + draw.GetTextSize(seg[1]) + draw.GetTextSize(SEP)
 
                     if i < #segments then
-                        if helper_ind_shadow then
-                            draw.SetFont(helper_ind_shadow)
+                        if helper_indicator_shadow then
+                            draw.SetFont(helper_indicator_shadow)
                             draw.Color(0, 0, 0, 150)
                             draw.Text(cx - draw.GetTextSize(SEP) + 1, cy + 1, SEP)
                         end
-                        draw.SetFont(helper_ind_font)
+                        draw.SetFont(helper_indicator_font)
                         draw.Color(150, 150, 150, 200)
                         draw.Text(cx - draw.GetTextSize(SEP), cy, SEP)
                     end
@@ -3515,5 +4112,5 @@ callbacks.Register("CreateMove", function(cmd)
     engine.SetViewAngles(new_angles)
 end)
 
-print("[Yuzaki] Devloper: Yuzaki1337 xiaosi xingdiao")
-print("[Yuzaki] Script loaded successfully")
+print("[Yuzaickey.lua] Devlopers: Yuzaki & M1ckey")
+print("[Yuzaickey.lua] Script loaded successfully")
