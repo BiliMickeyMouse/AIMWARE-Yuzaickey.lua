@@ -2,8 +2,7 @@
 -- yuzaickey.lua 免费且开源 支持二改并免费发布 修改过的版本请注明原作者 尊重他人(AI)的劳动成果
 -- yuzaickey.lua 所有抄写的功能或代码都会在注释中标明出处 并附上原作者 以便于追溯
 
-local YuzakiWindow = gui.Window("YuzakiWindow", "Yuzaickey Recode v1.1", 100, 100, 820, 800)
-
+local YuzakiWindow = gui.Window("YuzakiWindow", "Yuzaickey v1.2", 100, 100, 820, 800)
 -- Aimbot GUI
 local Aimbot = gui.Groupbox(YuzakiWindow, "Aimbot", 20, 20, 250, 0)
 local aimbot_enable = gui.Checkbox(Aimbot, "aimbot_enable", "Enable", false)
@@ -216,13 +215,48 @@ local SpammerGroup = gui.Groupbox(YuzakiWindow, "Spammer", 285, 250, 250, 0)
 -- 刷屏控件
 local spam_enable = gui.Checkbox(SpammerGroup, "spam_enable", "Enable", false)
 local spam_interval = gui.Slider(SpammerGroup, "spam_interval", "Delay", 50, 10, 1000, 1)
-local category   = gui.Combobox(SpammerGroup, "spam_cat",   "Category",
-    "Insult1", "Insult2", "ImClean", "Apology",
-    "AIMWARE", "PRIMORDIAL", "LEGENDWARE", "FATALITY",
-    "Rifk7", "iniuria", "NeverLose", "Gamesense",
-    "Nixware", "memesense", "plaguecheat", "bankroll",
-    "Custom"
-)
+
+-- 多选分类 (使用 Multibox + Checkbox 模式)
+local category = gui.Multibox(SpammerGroup, "Category")
+local spammer_category_insult1     = gui.Checkbox(category, "spammer_category_insult1",     "Insult1",     false)
+local spammer_category_insult2     = gui.Checkbox(category, "spammer_category_insult2",     "Insult2",     false)
+local spammer_category_imclean     = gui.Checkbox(category, "spammer_category_imclean",     "ImClean",     false)
+local spammer_category_apology     = gui.Checkbox(category, "spammer_category_apology",     "Apology",     false)
+local spammer_category_aimware     = gui.Checkbox(category, "spammer_category_aimware",     "AIMWARE",     false)
+local spammer_category_primordial  = gui.Checkbox(category, "spammer_category_primordial",  "PRIMORDIAL",  false)
+local spammer_category_legendware  = gui.Checkbox(category, "spammer_category_legendware",  "LEGENDWARE",  false)
+local spammer_category_fatality    = gui.Checkbox(category, "spammer_category_fatality",    "FATALITY",    false)
+local spammer_category_rifk7       = gui.Checkbox(category, "spammer_category_rifk7",       "Rifk7",       false)
+local spammer_category_iniuria     = gui.Checkbox(category, "spammer_category_iniuria",     "iniuria",     false)
+local spammer_category_neverlose   = gui.Checkbox(category, "spammer_category_neverlose",   "NeverLose",   false)
+local spammer_category_gamesense   = gui.Checkbox(category, "spammer_category_gamesense",   "Gamesense",   false)
+local spammer_category_nixware     = gui.Checkbox(category, "spammer_category_nixware",     "Nixware",     false)
+local spammer_category_memesense   = gui.Checkbox(category, "spammer_category_memesense",   "memesense",   false)
+local spammer_category_plaguecheat = gui.Checkbox(category, "spammer_category_plaguecheat", "plaguecheat", false)
+local spammer_category_bankroll    = gui.Checkbox(category, "spammer_category_bankroll",    "bankroll",    false)
+local spammer_category_custom      = gui.Checkbox(category, "spammer_category_custom",      "Custom",      false)
+
+-- 将 checkbox 映射到内容池
+local spammer_category_checks = {
+    spammer_category_insult1,
+    spammer_category_insult2,
+    spammer_category_imclean,
+    spammer_category_apology,
+    spammer_category_aimware,
+    spammer_category_primordial,
+    spammer_category_legendware,
+    spammer_category_fatality,
+    spammer_category_rifk7,
+    spammer_category_iniuria,
+    spammer_category_neverlose,
+    spammer_category_gamesense,
+    spammer_category_nixware,
+    spammer_category_memesense,
+    spammer_category_plaguecheat,
+    spammer_category_bankroll,
+    spammer_category_custom
+}
+
 local spam_custom_text = gui.Editbox(SpammerGroup, "spam_custom_text", "Custom Text")
 spam_custom_text:SetValue("")
 
@@ -1942,7 +1976,7 @@ local apology = {
 
 -- 内容池映射 (索引从0开始对应Combobox)
 -- 广告内容池
-local ad_aimware      = {"AIMWARE.net | PREMIUM CS2 CHEAT"}
+local aimware      = {"AIMWARE.net | PREMIUM CS2 CHEAT"}
 local primordial   = {"PRIMORDIAL.DEV | PREMIUM CS2 CHEAT"}
 local legendware   = {"LEGENDWARE.PW | PREMIUM CS2 CHEAT"}
 local fatality     = {"FATALITY.WIN | PREMIUM CS2 CHEAT"}
@@ -3634,6 +3668,8 @@ end
 -- ==================== Hitlog ====================
 local HitlogsGroup = gui.Groupbox(YuzakiWindow, "Hitlog", 550, 230, 250, 0)
 local hitlogs_enable = gui.Checkbox(HitlogsGroup, "hitlogs_enable", "Enable", false)
+local hitlogs_send_msg = gui.Checkbox(HitlogsGroup, "hitlogs_send_msg", "Send Message", false)
+local hitlogs_msg_lang = gui.Combobox(HitlogsGroup, "hitlogs_msg_lang", "Message Language", "Chinese", "English")
 local hitlogs_theme = gui.Combobox(HitlogsGroup, "hitlogs_theme", "Theme", "Dark", "Light")
 local hitlogs_offset_y = gui.Slider(HitlogsGroup, "hitlogs_offset_y", "Y Offset", 100, 0, 500, 1)
 local hitlogs_bg_alpha = gui.Slider(HitlogsGroup, "hitlogs_bg_alpha", "Background Opacity", 75, 50, 100, 1)
@@ -3702,8 +3738,30 @@ local function hitlogsEventListener(event)
                 segments[#segments + 1] = {c_name, target_name}
             end
 
-            local FULL_DURATION = 5
+            local FULL_DURATION = 5 
             hitlogs_hits[#hitlogs_hits + 1] = {segments, common.Time() + FULL_DURATION}
+
+            -- 发送聊天消息
+            if hitlogs_send_msg:GetValue() then
+                local is_en = hitlogs_msg_lang:GetValue() == 1
+                local msg
+                if health_left <= 0 then
+                    if is_en then
+                        msg = string.format("[Yuzaickey.lua]I killed %s!", target_name)
+                    else
+                        msg = string.format("[Yuzaickey.lua]我击杀了 %s！", target_name)
+                    end
+                else
+                    if is_en then
+                        msg = string.format("[Yuzaickey.lua] I hit %s 's %s for %d HP! He has %d HP left.",
+                            target_name, hitgroup, dmg_health, health_left)
+                    else
+                        msg = string.format("[Yuzaickey.lua]我对 %s 的 %s 造成了 %d HP！他还剩 %d HP。",
+                            target_name, hitgroup, dmg_health, health_left)
+                    end
+                end
+                client.ChatSay(msg)
+            end
         end
     end
 
@@ -4048,33 +4106,41 @@ callbacks.Register("Draw", function()
     end
     end  -- end helper_enable
 
-    -- 刷屏逻辑
+    -- 刷屏逻辑 (支持多选混搭)
     if spam_enable:GetValue() then
-        local cat_val = category:GetValue()
-        
-        -- 自定义模式：直接发送 Editbox 内容
-        if cat_val == 16 then
-            local custom_text = spam_custom_text:GetValue()
-            if custom_text and custom_text ~= "" then
-                local current_tick = globals.TickCount()
-                if current_tick - spam_last_tick >= spam_interval:GetValue() then
-                    client.ChatSay(custom_text)
-                    spam_last_tick = current_tick
+        -- 收集所有被勾选的分类池
+        local active_pools = {}
+        for i, chk in ipairs(spammer_category_checks) do
+            if chk:GetValue() then
+                if i <= #content_pools then
+                    -- 预设分类
+                    local pool = content_pools[i]
+                    if pool and #pool > 0 then
+                        table.insert(active_pools, pool)
+                    end
+                else
+                    -- Custom: 使用自定义文本
+                    local custom_text = spam_custom_text:GetValue()
+                    if custom_text and custom_text ~= "" then
+                        table.insert(active_pools, {custom_text})
+                    end
                 end
             end
-        else
-            -- 预设分类模式
-            local pool = content_pools[cat_val + 1]
-            if pool and #pool > 0 then
-                local current_tick = globals.TickCount()
-                if current_tick - spam_last_tick >= spam_interval:GetValue() then
-                    client.ChatSay(pool[spam_index])
-                    spam_index = spam_index + 1
-                    if spam_index > #pool then
-                        spam_index = 1
-                    end
-                    spam_last_tick = current_tick
+        end
+        
+        -- 从激活的池中随机选取并发送
+        if #active_pools > 0 then
+            local current_tick = globals.TickCount()
+            if current_tick - spam_last_tick >= spam_interval:GetValue() then
+                -- 随机选择一个激活的分类池
+                local rand_pool = active_pools[math.random(#active_pools)]
+                -- 按顺序遍历该池
+                client.ChatSay(rand_pool[spam_index])
+                spam_index = spam_index + 1
+                if spam_index > #rand_pool then
+                    spam_index = 1
                 end
+                spam_last_tick = current_tick
             end
         end
     end
@@ -4114,3 +4180,4 @@ end)
 
 print("[Yuzaickey.lua] Devlopers: Yuzaki & M1ckey")
 print("[Yuzaickey.lua] Script loaded successfully")
+
